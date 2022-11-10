@@ -19,6 +19,12 @@
     const last = ref(false);
 
 
+    //function to update history
+    function history() {
+        searchValue = document.getElementById("searchHistory").value;
+        hist.value.push(searchValue);
+    }
+
     //function to call api
     function Search(page) {
        
@@ -35,8 +41,11 @@
                     const error = (data && data.message) || response.statusText;
                     return Promise.reject(error);
                 }
+
+               
+                 
                 
-                hist.value.push(searchValue);
+              
 
                 this.totalVuePackages = data.total;
                
@@ -68,7 +77,7 @@
     <div class="home">
        
         <input id="searchHistory"/>
-        <button @click ='Search(0);'>Search</button>
+        <button @click ='Search(0); history();'>Search</button>
 
         <div class="content" v-if="dataExist">
             <table class="format">

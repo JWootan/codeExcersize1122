@@ -1,14 +1,9 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import IndexView from '../views/IndexView.vue'
+
 
 const routes = [
   {
     path: '/',
-    name: 'index',
-    component: IndexView
-  },
-  {
-    path: '/search',
     name: 'search',
     // route level code-splitting
     // this generates a separate chunk (about.[hash].js) for this route
