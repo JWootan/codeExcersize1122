@@ -27,7 +27,15 @@
 
     //function to call api
     function Search(page) {
-       
+
+
+        if (page == 0) {
+            first.value = true;
+        }
+        else {
+            first.value = false;
+        }
+
         pageNav.value = page;
         searchValue = document.getElementById("searchHistory").value;
         // GET request using fetch with error handling
@@ -47,16 +55,10 @@
                 
               
 
-                this.totalVuePackages = data.total;
+               
                
                 dataExist.value = true;
-                
-                if (page == 0) {
-                    first.value = true;
-                }
-                else {
-                    first.value = false;
-                }
+               
                 if (page == data.nbPages) {
                     last.value = true;
                 }
